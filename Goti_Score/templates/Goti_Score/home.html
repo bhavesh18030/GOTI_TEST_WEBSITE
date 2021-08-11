@@ -1,47 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  </head>
-  
-  <body>
+{% extends "Goti_Score/base.html" %}
+
+
+{% load crispy_forms_tags %}
+{% block content %}
     <div class="container">
   
       <!-- Nav tabs -->
       <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#Completed">Completed</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#Upcoming">Upcoming</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#Live">Live</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#Completed">Completed</a>
-      </li>
+      
       </ul>
   
       <!-- Tab panes -->
       <div class="tab-content">
-      <div class="tab-pane container active" id="Upcoming">
-        <h3>Upcoming Matches</h3>
+      
+        <div class="tab-pane container active" id="Completed">
+          <h3></h3>
+          {% for i in matches %}
+          <p><a class="btn btn-primary" href="{% url 'score_card' i.pk%}"> {{ i.team1 }} Vs {{i.team2}}</a></p>
+          {% endfor %}
+        </div>
+
+      <div class="tab-pane container fade" id="Upcoming">
+        <h3></h3>
         <p><a class="btn btn-primary" href="./score">Ind Vs Sl</a></p>
 
       </div>
       <div class="tab-pane container fade" id="Live">
-        <h3>Live Matches</h3>
+        <h3></h3>
         <p><a class="btn btn-primary" href="./score">Ind Vs Sl</a></p>
 
       </div>
-      <div class="tab-pane container fade" id="Completed">
-        <h3>Completed Matches</h3>
-        {% for i in matches %}
-        <p><a class="btn btn-primary" href="{% url 'score_card' i.pk%}"> {{ i.team1 }} Vs {{i.team2}}</a></p>
-        {% endfor %}
-      </div>
+      
       </div>
     </div>
-  </body>
-</html>
+  {% endblock content %}

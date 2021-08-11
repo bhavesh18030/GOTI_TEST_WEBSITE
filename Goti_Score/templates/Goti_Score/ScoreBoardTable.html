@@ -1,38 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends "Goti_Score/base.html" %}
+
+{% block content %}
 <style>
     table.GeneratedTable {
-      width: 100%;
+      width: 50%;
       background-color: #ffffff;
       border-collapse: collapse;
       border-width: 2px;
-      border-color: #ffcc00;
+      border-color: #000000;
       border-style: solid;
       color: #000000;
     }
     
     table.GeneratedTable td, table.GeneratedTable th {
       border-width: 2px;
-      border-color: #ffcc00;
+      border-color: #1d020c;
       border-style: solid;
       padding: 3px;
     }
     
     table.GeneratedTable thead {
-      background-color: #ffcc00;
+      background-color: #fcf6f6;
     }
     </style>
-     
-</head>
+
 <body>
     
     {% for i in posts %}
 
     <table class="GeneratedTable">
         <thead>
+          
           <tr>
-            <th>Name</th>
+            <th>Batsman</th>
             <th>Runs</th>
           </tr>
         </thead>
@@ -57,7 +57,7 @@
       <table class="GeneratedTable">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Bowler</th>
             <th>Wickets</th>
           </tr>
         </thead>
@@ -82,4 +82,4 @@
 
       {% endfor %}
 </body>
-</html>
+{% endblock content %}

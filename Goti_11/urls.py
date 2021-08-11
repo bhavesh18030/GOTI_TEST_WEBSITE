@@ -17,8 +17,10 @@ import Goti_Score
 
 from django.contrib import admin
 from django.urls import path, include
+from Users import views as user_views
 
 urlpatterns = [
     path('home/', include('Goti_Score.urls')),
+    path('register/', user_views.register, name='register'),
     path('admin/', admin.site.urls),
 ]
